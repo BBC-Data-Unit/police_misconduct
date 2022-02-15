@@ -55,8 +55,7 @@ The BBC Shared Data Unit makes data journalism available to the wider news indus
 
 Stories written in print and online by partners based on this research included:
 
-- Barry and District News: [Analysing the IOPC and police misconduct complaint system](https://www.barryanddistrictnews.co.uk/news/19917314.analysing-iopc-pol
-ice-misconduct-complaints-system/) 12 February 2022 
+- Barry and District News: [Analysing the IOPC and police misconduct complaint system](https://www.barryanddistrictnews.co.uk/news/19917314.analysing-iopc-police-misconduct-complaints-system/) 12 February 2022 
 
 - The Bolton News: [Police complaints 'broken' as Bolton 'excessive force' officers cleared](https://uk.news.yahoo.com/police-complaints-broken-bolton-excessive-050000290.html) 11 February 2022
 
