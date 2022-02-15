@@ -55,18 +55,18 @@ The BBC Shared Data Unit makes data journalism available to the wider news indus
 
 Stories written in print and online by partners based on this research included:
 
-- Barry and District News: [Analysing the IOPC and police misconduct complaint system] (https://www.barryanddistrictnews.co.uk/news/19917314.analysing-iopc-pol
+- Barry and District News: [Analysing the IOPC and police misconduct complaint system](https://www.barryanddistrictnews.co.uk/news/19917314.analysing-iopc-pol
 ice-misconduct-complaints-system/) 12 February 2022
 
 - The Bolton News: [Police complaints 'broken' as Bolton 'excessive force' officers cleared](https://uk.news.yahoo.com/police-complaints-broken-bolton-excessive-050000290.html) 11 February 2022
 
-- The National: [Analysing the IOPC and police misconduct complaint system] (https://www.thenational.wales/news/19919644.analysing-iopc-police-misconduct-complaints-system/) 12 February 2022
+- The National: [Analysing the IOPC and police misconduct complaint system](https://www.thenational.wales/news/19919644.analysing-iopc-police-misconduct-complaints-system/) 12 February 2022
 
-- Portsmouth News: [Police defend policy on misconduct after question over action] (https://www.pressreader.com/similar/281599538916094) 14 February 2022
+- Portsmouth News: [Police defend policy on misconduct after question over action](https://www.pressreader.com/similar/281599538916094) 14 February 2022
 
 - Yorkshire Post: [19 Police guilty of misconduct but just one fired](https://www.pressreader.com/uk/yorkshire-post/20220211/281599538916094) 12 February 2022
 
-- Yorkshire Live: Police complaints system 'broken and powerless' as campaigners demand overhaul of IOPC](https://www.examinerlive.co.uk/news/local-news/police-complaints-system-broken-powerless-23052009) 11 February 2022
+- Yorkshire Live: [Police complaints system 'broken and powerless' as campaigners demand overhaul of IOPC](https://www.examinerlive.co.uk/news/local-news/police-complaints-system-broken-powerless-23052009) 11 February 2022
 
 - Worcester News: [West Mercia Police misconduct cases according to IOPC]([https://www.worcesternews.co.uk/news/19917406.west-mercia-police-misconduct-cases-according-iopc/) 11 February 2022
 
@@ -85,7 +85,7 @@ ice-misconduct-complaints-system/) 12 February 2022
 
 - Dorset Echo: [Misconduct findings led to no action against Dorset Police officers](https://muckrack.com/account/login/?next=https://muckrack.com/link/ojzZQD/watchdog-misconduct-findings-led-to-no-action-against-dorset-police-officers) 11 February 2022
 
-- Manchester World: [The greater Manchester police officers who have faced misconduct hearings revealed by data] (https://www.manchesterworld.uk/news/the-greater-manchester-police-officers-who-have-faced-hearings-for-misconduct-since-2018-revealed-by-data-3562803) 11 February 2022
+- Manchester World: [The greater Manchester police officers who have faced misconduct hearings revealed by data](https://www.manchesterworld.uk/news/the-greater-manchester-police-officers-who-have-faced-hearings-for-misconduct-since-2018-revealed-by-data-3562803) 11 February 2022
 
 - The Basingstoke Gazette: [Damning investigation blasts ‘broken’ police complaints system](https://www.basingstokegazette.co.uk/news/19915700.damning-investigation-blasts-broken-powerless-police-complaints-system/) 11 February 2022
 
