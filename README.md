@@ -39,7 +39,7 @@ Cases involving persistent bullying, the use of racial slurs and deaths of membe
 ## Data
 
 For this project we shared: 
-- An accompanying [spreadsheet] (https://docs.google.com/spreadsheets/d/15rQtj206poOleT9RyCdE4dzz0Kakg-vZkC2_JWppoGk/edit?usp=sharing) and [website] (https://sduiopc.github.io/test1/index.html) which allowed partners to view each IOPC case published when there was a case to answer for misconduct and the subsequent outcomes
+- An accompanying [spreadsheet](https://docs.google.com/spreadsheets/d/15rQtj206poOleT9RyCdE4dzz0Kakg-vZkC2_JWppoGk/edit?usp=sharing) and [website](https://sduiopc.github.io/test1/index.html) which allowed partners to view each IOPC case published when there was a case to answer for misconduct and the subsequent outcomes
 - Detailed background to the IOPC.
 - Detailed analysis
 - Interviews with Janet Alder and acclaimed filmmaker Ken Fero, who have both been campaigning for stricter police regulation for 30 years.
@@ -49,9 +49,10 @@ For this project we shared:
 
 ## Partner usage
 
-The story was featured on BBC Online, BBC Radio Leeds and BBC Radio Sheffield.
+The story was featured on BBC Online, BBC Radio Leeds and BBC Radio Sheffield. It all featured in debates on Radio Four's Today and Sunday Morning on BBC One. 
 
 The BBC Shared Data Unit makes data journalism available to the wider news industry as part of the BBC Local News Partnership.
 
 Stories written in print and online by partners based on this research included:
+
 
