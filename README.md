@@ -36,6 +36,17 @@ Out of the 244 officers with a case to answer in our regional analysis:
 
 Cases involving persistent bullying, the use of racial slurs and deaths of members of the public were among those to see no further action taken.
 
+## Data
+
+For this project we shared: 
+- An accompanying spreadsheet and website where you will be able to view each IOPC case published when there was a case to answer for misconduct regarding your local force and the subsequent outcomes
+- Detailed background to the IOPC.
+- Detailed analysis
+- Interviews with Janet Alder and acclaimed filmmaker Ken Fero, who have both been campaigning for stricter police regulation for 30 years.
+- Responses from the IOPC, the Police Federation and the Crown Prosecution Service. 
+
+
+
 
 ## Partner usage
 
