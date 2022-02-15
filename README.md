@@ -39,12 +39,11 @@ Cases involving persistent bullying, the use of racial slurs and deaths of membe
 ## Data
 
 For this project we shared: 
-- An accompanying spreadsheet and website where you will be able to view each IOPC case published when there was a case to answer for misconduct regarding your local force and the subsequent outcomes
+- An accompanying [spreadsheet] (https://docs.google.com/spreadsheets/d/15rQtj206poOleT9RyCdE4dzz0Kakg-vZkC2_JWppoGk/edit?usp=sharing) and [website] (https://sduiopc.github.io/test1/index.html) which allowed partners to view each IOPC case published when there was a case to answer for misconduct and the subsequent outcomes
 - Detailed background to the IOPC.
 - Detailed analysis
 - Interviews with Janet Alder and acclaimed filmmaker Ken Fero, who have both been campaigning for stricter police regulation for 30 years.
 - Responses from the IOPC, the Police Federation and the Crown Prosecution Service. 
-
 
 
 
