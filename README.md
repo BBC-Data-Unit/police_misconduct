@@ -77,18 +77,18 @@ ice-misconduct-complaints-system/) 12 February 2022
 
 - The Times: [Police keep jobs after half of gross misconduct rulings](https://www.thetimes.co.uk/article/police-keep-jobs-after-half-of-gross-misconduct-rulings-dgv80cc93) 12 February 2022
 
-- Porstmouth News: [Misconduct allegations taken very seriously Hampshire Police says](https://www.portsmouth.co.uk/news/crime/misconduct-allegations-taken-very-seriously-hampshire-police-says-3566450) February 11 2022
+- Porstmouth News: [Misconduct allegations taken very seriously Hampshire Police says](https://www.portsmouth.co.uk/news/crime/misconduct-allegations-taken-very-seriously-hampshire-police-says-3566450) 11 February 2022
 
-- Bournemouth Echo: [Watchdog findings over Dorset Police 'misconduct' led to no action](https://www.bournemouthecho.co.uk/news/19916127.watchdog-findings-dorset-police-misconduct-led-no-action/) February 11 2022
+- Bournemouth Echo: [Watchdog findings over Dorset Police 'misconduct' led to no action](https://www.bournemouthecho.co.uk/news/19916127.watchdog-findings-dorset-police-misconduct-led-no-action/) 11 February 2022
 
-- South Wales Argus: [Analysing the IOPC and police misconduct complaints system](https://www.southwalesargus.co.uk/news/19917314.analysing-iopc-police-misconduct-complaints-system/) February 12, 2022
+- South Wales Argus: [Analysing the IOPC and police misconduct complaints system](https://www.southwalesargus.co.uk/news/19917314.analysing-iopc-police-misconduct-complaints-system/) 12 February 2022
 
-- Dorset Echo: [Misconduct findings led to no action against Dorset Police officers](https://muckrack.com/account/login/?next=https://muckrack.com/link/ojzZQD/watchdog-misconduct-findings-led-to-no-action-against-dorset-police-officers)
+- Dorset Echo: [Misconduct findings led to no action against Dorset Police officers](https://muckrack.com/account/login/?next=https://muckrack.com/link/ojzZQD/watchdog-misconduct-findings-led-to-no-action-against-dorset-police-officers) 11 February 2022
 
-- Manchester World: [The greater Manchester police officers who have faced misconduct hearings revealed by data] (https://www.manchesterworld.uk/news/the-greater-manchester-police-officers-who-have-faced-hearings-for-misconduct-since-2018-revealed-by-data-3562803) February 11 2022
+- Manchester World: [The greater Manchester police officers who have faced misconduct hearings revealed by data] (https://www.manchesterworld.uk/news/the-greater-manchester-police-officers-who-have-faced-hearings-for-misconduct-since-2018-revealed-by-data-3562803) 11 February 2022
 
-- The Basingstoke Gazette: [Damning investigation blasts ‘broken’ police complaints system](https://www.basingstokegazette.co.uk/news/19915700.damning-investigation-blasts-broken-powerless-police-complaints-system/) February 11 2022
+- The Basingstoke Gazette: [Damning investigation blasts ‘broken’ police complaints system](https://www.basingstokegazette.co.uk/news/19915700.damning-investigation-blasts-broken-powerless-police-complaints-system/) 11 February 2022
 
-- Suffolk News: [Suffolk Police officer who had relationship with domestic abuse victim quit before misconduct hearing](https://www.suffolknews.co.uk/ipswich/news/suffolk-police-officer-who-had-relationship-with-domestic-ab-9239707/) February 11 2022  
+- Suffolk News: [Suffolk Police officer who had relationship with domestic abuse victim quit before misconduct hearing](https://www.suffolknews.co.uk/ipswich/news/suffolk-police-officer-who-had-relationship-with-domestic-ab-9239707/) 11 February 2022  
 
 
