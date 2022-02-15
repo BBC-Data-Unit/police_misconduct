@@ -55,4 +55,40 @@ The BBC Shared Data Unit makes data journalism available to the wider news indus
 
 Stories written in print and online by partners based on this research included:
 
+- Barry and District News: [Analysing the IOPC and police misconduct complaint system] (https://www.barryanddistrictnews.co.uk/news/19917314.analysing-iopc-pol
+ice-misconduct-complaints-system/) 12 February 2022
+
+- The Bolton News: [Police complaints 'broken' as Bolton 'excessive force' officers cleared](https://uk.news.yahoo.com/police-complaints-broken-bolton-excessive-050000290.html) 11 February 2022
+
+- The National: [Analysing the IOPC and police misconduct complaint system] (https://www.thenational.wales/news/19919644.analysing-iopc-police-misconduct-complaints-system/) 12 February 2022
+
+- Portsmouth News: [Police defend policy on misconduct after question over action] (https://www.pressreader.com/similar/281599538916094) 14 February 2022
+
+- Yorkshire Post: [19 Police guilty of misconduct but just one fired](https://www.pressreader.com/uk/yorkshire-post/20220211/281599538916094) 12 February 2022
+
+- Yorkshire Live: Police complaints system 'broken and powerless' as campaigners demand overhaul of IOPC](https://www.examinerlive.co.uk/news/local-news/police-complaints-system-broken-powerless-23052009) 11 February 2022
+
+- Worcester News: [West Mercia Police misconduct cases according to IOPC]([https://www.worcesternews.co.uk/news/19917406.west-mercia-police-misconduct-cases-according-iopc/) 11 February 2022
+
+
+- Wokingham Today: [Thames Valley Police officers given management action after misconduct proven](https://wokingham.today/thames-valley-police-officers-given-management-action-after-misconduct-proven/) 11 February 2022
+
+- Hereford Times: [Police misconduct in the force that covers Herefordshire](https://www.herefordtimes.com/news/19920258.west-mercia-police-misconduct-cases-according-iopc/) 11 February 2022
+
+- The Times: [Police keep jobs after half of gross misconduct rulings](https://www.thetimes.co.uk/article/police-keep-jobs-after-half-of-gross-misconduct-rulings-dgv80cc93) 12 February 2022
+
+- Porstmouth News: [Misconduct allegations taken very seriously Hampshire Police says](https://www.portsmouth.co.uk/news/crime/misconduct-allegations-taken-very-seriously-hampshire-police-says-3566450) February 11 2022
+
+- Bournemouth Echo: [Watchdog findings over Dorset Police 'misconduct' led to no action](https://www.bournemouthecho.co.uk/news/19916127.watchdog-findings-dorset-police-misconduct-led-no-action/) February 11 2022
+
+- South Wales Argus: [Analysing the IOPC and police misconduct complaints system](https://www.southwalesargus.co.uk/news/19917314.analysing-iopc-police-misconduct-complaints-system/) February 12, 2022
+
+- Dorset Echo: [Misconduct findings led to no action against Dorset Police officers](https://muckrack.com/account/login/?next=https://muckrack.com/link/ojzZQD/watchdog-misconduct-findings-led-to-no-action-against-dorset-police-officers)
+
+- Manchester World: [The greater Manchester police officers who have faced misconduct hearings revealed by data] (https://www.manchesterworld.uk/news/the-greater-manchester-police-officers-who-have-faced-hearings-for-misconduct-since-2018-revealed-by-data-3562803) February 11 2022
+
+- The Basingstoke Gazette: [Damning investigation blasts ‘broken’ police complaints system](https://www.basingstokegazette.co.uk/news/19915700.damning-investigation-blasts-broken-powerless-police-complaints-system/) February 11 2022
+
+- Suffolk News: [Suffolk Police officer who had relationship with domestic abuse victim quit before misconduct hearing](https://www.suffolknews.co.uk/ipswich/news/suffolk-police-officer-who-had-relationship-with-domestic-ab-9239707/) February 11 2022  
+
 
