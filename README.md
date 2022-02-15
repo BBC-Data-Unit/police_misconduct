@@ -29,10 +29,10 @@ From those we narrowed the outcomes down to 244 reports where there was a miscon
 
 Out of the 244 officers with a case to answer in our regional analysis:
 
-105 (43%) faced no further action.  Twenty of those had left the force before their hearings were heard, but the majority (77, or 73% of the 105) were found not guilty by a force panel.
-87 (36%) received management action
-40 officers (16%) were given a written warning
-10 officers (4%) were dismissed
+- 105 (43%) faced no further action.  Twenty of those had left the force before their hearings were heard, but the majority (77, or 73% of the 105) were found not guilty by a force panel.
+- 87 (36%) received management action
+- 40 officers (16%) were given a written warning
+- 10 officers (4%) were dismissed
 
 Cases involving persistent bullying, the use of racial slurs and deaths of members of the public were among those to see no further action taken.
 
@@ -49,7 +49,7 @@ For this project we shared:
 
 ## Partner usage
 
-The story was featured on BBC Online, BBC Radio Leeds and BBC Radio Sheffield. It all featured in debates on Radio Four's Today and Sunday Morning on BBC One. 
+The story featured on BBC Online, BBC Radio Leeds and BBC Radio Sheffield. It was also sidcussed in debates on Radio Four's Today and Sunday Morning on BBC One. 
 
 The BBC Shared Data Unit makes data journalism available to the wider news industry as part of the BBC Local News Partnership.
 
