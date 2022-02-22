@@ -90,4 +90,6 @@ Stories written in print and online by partners based on this research included:
 
 - Suffolk News: [Suffolk Police officer who had relationship with domestic abuse victim quit before misconduct hearing](https://www.suffolknews.co.uk/ipswich/news/suffolk-police-officer-who-had-relationship-with-domestic-ab-9239707/) 11 February 2022  
 
+-Cambridgeshire Live: [Cambridgeshire police officers found guilty of misconduct in the last three years](https://www.cambridge-news.co.uk/news/cambridge-news/cambridgeshire-police-officers-found-guilty-23131768) 19 February 2022
+
 
