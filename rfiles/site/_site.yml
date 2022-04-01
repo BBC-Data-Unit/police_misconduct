@@ -1,0 +1,123 @@
+name: "iopc"
+navbar:
+  title: "Police misconduct"
+  left:
+    - text: "Forces"
+      menu:
+
+      - text: "Avon and Somerset"
+        href: Avon-and-Somerset-Constabulary.html
+
+      - text: "Bedfordshire"
+        href: Bedfordshire-Police.html
+
+      - text: "British Transport"
+        href: British-Transport-Police.html
+
+      - text: "Cambridgeshire"
+        href: Cambridgeshire-Constabulary.html
+
+      - text: "Cheshire"
+        href: Cheshire-Constabulary.html
+
+      - text: "City of London"
+        href: City-of-London-Police.html
+
+      - text: "Cleveland"
+        href: Cleveland-Police.html
+
+      - text: "Cumbria"
+        href: Cumbria-Constabulary.html
+
+      - text: "Derbyshire"
+        href: Derbyshire-Constabulary.html
+
+      - text: "Devon and Cornwall"
+        href: Devon-and-Cornwall-Constabulary.html
+
+      - text: "Dorset"
+        href: Dorset-Police.html
+
+      - text: "Durham"
+        href: Durham-Constabulary.html
+
+      - text: "Essex"
+        href: Essex-Police.html
+
+      - text: "Greater Manchester"
+        href: Greater-Manchester-Police.html
+
+      - text: "Gwent"
+        href: Gwent-Police.html
+
+      - text: "Hampshire"
+        href: Hampshire-Constabulary.html
+
+      - text: "Hertfordshire"
+        href: Hertfordshire-Constabulary.html
+
+      - text: "Kent"
+        href: Kent-Police.html
+
+      - text: "Leicestershire"
+        href: Leicestershire-Police.html
+
+      - text: "Merseyside"
+        href: Merseyside-Police.html
+
+      - text: "Metropolitan"
+        href: Metropolitan-Police.html
+
+      - text: "Norfolk"
+        href: Norfolk-Constabulary.html
+
+      - text: "North Wales"
+        href: North-Wales-Police.html
+
+      - text: "North Yorkshire"
+        href: North-Yorkshire-Police.html
+
+      - text: "Northamptonshire"
+        href: Northamptonshire-Police.html
+
+      - text: "Northumbria"
+        href: Northumbria-Police.html
+
+      - text: "Nottinghamshire"
+        href: Nottinghamshire-Police.html
+
+      - text: "South Wales"
+        href: South-Wales-Police.html
+
+      - text: "South Yorkshire"
+        href: South-Yorkshire-Police.html
+
+      - text: "Staffordshire"
+        href: Staffordshire-Police.html
+
+      - text: "Suffolk"
+        href: Suffolk-Constabulary.html
+
+      - text: "Surrey"
+        href: Surrey-Police.html
+
+      - text: "Sussex"
+        href: Sussex-Police.html
+
+      - text: "Thames Valley"
+        href: Thames-Valley-Police.html
+
+      - text: "Warwickshire"
+        href: Warwickshire-Police.html
+
+      - text: "West Mercia"
+        href: West-Mercia-Police.html
+
+      - text: "West Midlands"
+        href: West-Midlands-Police.html
+
+      - text: "West Yorkshire"
+        href: West-Yorkshire-Police.html
+
+      - text: "Wiltshire"
+        href: Wiltshire-Constabulary.html
