@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title> Police misconduct</title>
+
+<script src="site_libs/header-attrs-2.11.3/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.19/datatables.js"></script>
+<link href="site_libs/dt-core-bootstrap-1.10.20/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-bootstrap-1.10.20/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-bootstrap-1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="site_libs/dt-core-bootstrap-1.10.20/js/dataTables.bootstrap.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1.9000/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1.9000/js/crosstalk.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Police misconduct</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+Forces A-M
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Avon-and-Somerset-Constabulary.html">Avon and Somerset</a>
+    </li>
+    <li>
+      <a href="Bedfordshire-Police.html">Bedfordshire</a>
+    </li>
+    <li>
+      <a href="British-Transport-Police.html">British Transport</a>
+    </li>
+    <li>
+      <a href="Cambridgeshire-Constabulary.html">Cambridgeshire</a>
+    </li>
+    <li>
+      <a href="Cheshire-Constabulary.html">Cheshire</a>
+    </li>
+    <li>
+      <a href="City-of-London-Police.html">City of London</a>
+    </li>
+    <li>
+      <a href="Cleveland-Police.html">Cleveland</a>
+    </li>
+    <li>
+      <a href="Cumbria-Constabulary.html">Cumbria</a>
+    </li>
+    <li>
+      <a href="Derbyshire-Constabulary.html">Derbyshire</a>
+    </li>
+    <li>
+      <a href="Devon-and-Cornwall-Constabulary.html">Devon and Cornwall</a>
+    </li>
+    <li>
+      <a href="Dorset-Police.html">Dorset</a>
+    </li>
+    <li>
+      <a href="Durham-Constabulary.html">Durham</a>
+    </li>
+    <li>
+      <a href="Essex-Police.html">Essex</a>
+    </li>
+    <li>
+      <a href="Greater-Manchester-Police.html">Greater Manchester</a>
+    </li>
+    <li>
+      <a href="Gwent-Police.html">Gwent</a>
+    </li>
+    <li>
+      <a href="Hampshire-Constabulary.html">Hampshire</a>
+    </li>
+    <li>
+      <a href="Hertfordshire-Constabulary.html">Hertfordshire</a>
+    </li>
+    <li>
+      <a href="Kent-Police.html">Kent</a>
+    </li>
+    <li>
+      <a href="Leicestershire-Police.html">Leicestershire</a>
+    </li>
+    <li>
+      <a href="Merseyside-Police.html">Merseyside</a>
+    </li>
+    <li>
+      <a href="Metropolitan-Police.html">Metropolitan</a>
+    </li>
+</ul></li></ul><ul class="nav navbar-nav navbar-right"></ul><ul class="nav navbar-nav"><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Forces N-Z<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li>
+      <a href="Norfolk-Constabulary.html">Norfolk</a>
+    </li>
+    <li>
+      <a href="North-Wales-Police.html">North Wales</a>
+    </li>
+    <li>
+      <a href="North-Yorkshire-Police.html">North Yorkshire</a>
+    </li>
+    <li>
+      <a href="Northamptonshire-Police.html">Northamptonshire</a>
+    </li>
+    <li>
+      <a href="Northumbria-Police.html">Northumbria</a>
+    </li>
+    <li>
+      <a href="Nottinghamshire-Police.html">Nottinghamshire</a>
+    </li>
+    <li>
+      <a href="South-Wales-Police.html">South Wales</a>
+    </li>
+    <li>
+      <a href="South-Yorkshire-Police.html">South Yorkshire</a>
+    </li>
+    <li>
+      <a href="Staffordshire-Police.html">Staffordshire</a>
+    </li>
+    <li>
+      <a href="Suffolk-Constabulary.html">Suffolk</a>
+    </li>
+    <li>
+      <a href="Surrey-Police.html">Surrey</a>
+    </li>
+    <li>
+      <a href="Sussex-Police.html">Sussex</a>
+    </li>
+    <li>
+      <a href="Thames-Valley-Police.html">Thames Valley</a>
+    </li>
+    <li>
+      <a href="Warwickshire-Police.html">Warwickshire</a>
+    </li>
+    <li>
+      <a href="West-Mercia-Police.html">West Mercia</a>
+    </li>
+    <li>
+      <a href="West-Midlands-Police.html">West Midlands</a>
+    </li>
+    <li>
+      <a href="West-Yorkshire-Police.html">West Yorkshire</a>
+    </li>
+    <li>
+      <a href="Wiltshire-Constabulary.html">Wiltshire</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><p><img src="https://raw.githubusercontent.com/sduiopc/test1/branch1/LNP%20Header-01.jpg" align="right" style="width:40.0%" /><br />
+Police misconduct</p></h1>
+
+</div>
+
+
+<p><strong><em>This story is available for use by the BBC’s local news partners. Please do not share outside of the network. It is under strict embargo.</em></strong></p>
+<div id="whats-the-story" class="section level1 tabset tabset-fade tabset-pills">
+<h1 class="tabset tabset-fade tabset-pills">What’s the story?</h1>
+<p><strong>We’ve looked at the effectiveness of the police complaints system for England and Wales three years after it was formed in 2018.</strong></p>
+<p>The Independent Office for Police Complaints (IOPC) succeeded the Independent Police Complaints Commission in a bid to speed up decision-making and create more accountability.</p>
+<p>The watchdog has powers to ensure police forces investigate when it has found officers and staff have a case to answer for misconduct.</p>
+<p>Ultimately, police disciplinary panels have the final say on sanction.</p>
+<p>We’ve analysed:</p>
+<ol style="list-style-type: decimal">
+<li>Three years of yearly outcome reports published by the IOPC</li>
+<li>More than 800 published reports on its website</li>
+</ol>
+<div id="yearly-outcome-reports" class="section level3">
+<h3>Yearly outcome reports</h3>
+<p>Over the past three years, some 418 misconduct cases were held by forces following an initial investigation by the IOPC.</p>
+<p>The force panels subsequently found officers or staff to have committed misconduct or gross misconduct in 266 (64%) of cases.</p>
+<p>In misconduct cases, panels gave 18 final written warnings, 57 written warnings, took management action in 50 cases and took no further action in 12 cases.</p>
+<p>For gross misconduct, disciplinary panels dismissed 55 police officers without notice, gave 36 final written warnings and four written warnings.</p>
+<p>IOPC guidance introduced in 2020 states that a misconduct case should be considered a disciplinary matter that would “warrant at least a written warning”.</p>
+<p>An IOPC director said the reason so many officers did not face further action could have been because individual misconduct panels held by police forces required a higher threshold to find misconduct proven than the IOPC investigators. She also said police forces often frustrated proceedings by providing only a written statement instead of an interview.</p>
+<p>The Police Federation said the reason the most serious punishments were rare was because the IOPC too often pursued “vexatious allegations” against its members.</p>
+<p>Critics described the police complaints system as “broken” and “powerless”.</p>
+</div>
+<div id="the-published-reports" class="section level2">
+<h2>The published reports</h2>
+<p>The yearly IOPC outcome reports do not contain details of individual forces. The IOPC does publish summaries of misconduct cases on its website.</p>
+<p>We analysed those reports to provide a regional breakdown by force.</p>
+<p>Since its inception, the IOPC has received more than 4,000 referrals for cases in each of its three years and carried out 1,895 investigations.</p>
+<p>Only <a href="https://policeconduct.gov.uk/">881 of those investigations have been published on its website</a>. Many of the investigations cannot be published until appeals have been heard, inquests have concluded or, in a small number of cases, criminal proceedings have concluded.</p>
+<p>In total, there were 181 cases where the IOPC felt a reasonable tribunal could find misconduct in respect of the individuals involved:</p>
+<p>Those 181 cases involved a combined total of 244 police officers and 59 staff.</p>
+<p>Misconduct was proven in the case of 150 officers (67% of the 224 who had not left the force) and 37 staff (75% of the 49 who had not left the force).</p>
+<p>We have compiled the misconduct cases for individual forces in the drop-down menus at the top of the page. They include all cases for police forces that have:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Been published on the IOPC website in the last three years</li>
+<li>Where the IOPC decided there was a case to answer for misconduct</li>
+</ol>
+</div>
+<div id="how-bbc-analysis-compares" class="section level2">
+<h2>How BBC analysis compares</h2>
+<ul>
+<li>The annual outcomes report is not broken down by police force area and does not account for the outcome of appeals. In contrast, its published reports are put on the website when all proceedings, including inquests and appeals, have been concluded. This is why there are far fewer published reports.</li>
+<li>The annual outcomes report takes a yearly view of misconduct procedures, whereas our analysis of the published reports includes all reports published since the organisation came into being in 2018.</li>
+<li>The annual outcomes report does not differentiate between staff and officers, whereas our analysis of the published report does</li>
+<li>In our analysis of the published reports, it was not always possible to differentiate between a written warning and a final written warning Similarly, our analysis of the published reports does not differentiate between misconduct and gross misconduct.<br />
+</li>
+<li>The figures in the IOPC’s annual outcome reports do not account for officers who resigned or retired after December 2017. Therefore, its figures may differ from the total misconduct reported. Ours analysis of the published reports does account for this as we felt this was important to reflect.</li>
+</ul>
+<div id="sanctions-for-police-officers" class="section level3">
+<h3>Sanctions for police officers</h3>
+<p><strong>Out of the 244 officers identified by the IOPC as having a case to answer for misconduct, 105 (43%) faced no further action, the most common outcome.</strong></p>
+<p>This is either because officers had left the force, retired before their hearing, or the force disagreed with the findings of the IOPC. In a small number of cases, officers faced no further action even when they were found guilty of misconduct.</p>
+<p>Of the 105 officers to face no further action:</p>
+<ul>
+<li>A total of 16 officers had left the force by the time of their disciplinary proceedings so no further action could be taken.</li>
+<li>Four officers retired</li>
+<li>A total of 77 were found not guilty (the force disagreed with the findings)</li>
+<li>A total of eight were found guilty but were given no sanction.</li>
+</ul>
+<p>Of the 137 officers who did face some form of action:</p>
+<ul>
+<li>10 were dismissed</li>
+<li>40 were given a written warning</li>
+<li>87 were given management action (supervision or extra training)</li>
+</ul>
+<p>Please note that some officers were found guilty of misconduct after they had left the force. In some cases the outcome for officers were not detailed.</p>
+<p>Among the cases where misconduct was proven but no action was taken were:</p>
+<ul>
+<li>An Essex Police officer who was accused of using aggressive and threatening language towards a colleague and then subjected this colleague to a pattern of victimisation and bullying.</li>
+<li>Three Avon and Somerset Police officers who failed to inform a custody sergeant that the man they were taking into custody had hit his head and began to fit during a struggle with him. The man suffered a pulmonary embolism and died.</li>
+</ul>
+<p>Among the cases where police officers were given management action:</p>
+<ul>
+<li>Three officers who were part of a highly discriminatory WhatsApp group in which other serving officers discussed the possibility of raping and murdering a woman and arranging to have sex with a victim of crime together the next time they were on night duty.</li>
+</ul>
+</div>
+<div id="sanctions-for-police-staff" class="section level3">
+<h3>Sanctions for police staff</h3>
+<p>Of the 59 staff identified as having a case to answer by investigators, <strong>20 (34%) faced no further action</strong>.</p>
+<p>Out of the 20 to face no action:</p>
+<ul>
+<li>A total of eight staff left the force before the tribunal could take place</li>
+<li>Two members of staff retired</li>
+<li>10 were found not guilty of misconduct</li>
+</ul>
+<p><strong><em>*Please note the outcomes were not detailed for a further four members of staff.</em></strong></p>
+<p>Of those where misconduct was proven:</p>
+<ul>
+<li>Eight were given a written warning</li>
+<li>31 received management action</li>
+<li>None were dismissed</li>
+</ul>
+</div>
+<div id="recommendations" class="section level3">
+<h3>Recommendations</h3>
+<p>Alongside individual sanctions, the IOPC made 40 recommendations to forces to change procedures in light of a misconduct investigation.</p>
+<p>On three occasions those recommendations were refused by the force in question. These are detailed below.</p>
+<ol style="list-style-type: decimal">
+<li>In regards to recording conversations with victims of crime at the Met Police: <a href="https://policeconduct.gov.uk/recommendations/recommendation-metropolitan-police-october-2020" class="uri">https://policeconduct.gov.uk/recommendations/recommendation-metropolitan-police-october-2020</a></li>
+<li>Reviewing Sussex Poice’s missing persons policy: <a href="https://policeconduct.gov.uk/recommendations/recommendations-sussex-police-march-2020" class="uri">https://policeconduct.gov.uk/recommendations/recommendations-sussex-police-march-2020</a></li>
+<li>Updating first aid procedures at the Met Police: <a href="https://policeconduct.gov.uk/recommendations/recommendations-metropolitan-police-service-november-2018" class="uri">https://policeconduct.gov.uk/recommendations/recommendations-metropolitan-police-service-november-2018</a></li>
+</ol>
+</div>
+</div>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p><strong>The IOPC (Independent Office for Police Conduct) came into effect in April 2018, replacing the IPCC (Independent Police Complaints Commision) as the watchdog for policing in England and Wales.</strong></p>
+<p>At the time, the Home Office promised the new organisation would reform the way complaints were handled - namely by improving the speed in which conclusions were given and by allowing investigators greater autonomy.</p>
+<p>Unlike its predecessor, the IOPC was given the power to initiate its own investigations into complaints of police conduct.</p>
+<p>Since its inception, the IOPC has received more than 4,000 referrals for cases in each of its three years and carried out 1,895 investigations.</p>
+<p><strong>Only 881 of those investigations <a href="https://policeconduct.gov.uk/">have been published on its website</a>. Many of the investigations cannot be published until appeals have been heard, inquests have concluded or, in a small number of cases, criminal proceedings have concluded. It is the published investigations that form the basis of the Shared Data Unit investigation.</strong></p>
+</div>
+<div id="how-do-the-investigations-work" class="section level2">
+<h2>How do the investigations work?</h2>
+<p>While most police complaints are dealt with by the force itself, the most serious cases are referred to the IOPC. This is either done by the force in question or the IOPC itself, which can call in an investigation if it has not been referred to by the force.</p>
+<p>A member of the public can also complain directly to the IOPC. The organisation is called in automatically if an individual has died shortly after coming into contact with police.</p>
+<p>Once initiated, the investigators will compile evidence to decide whether the actions of the officers or police staff in question fell short of the standards expected.</p>
+<p>The investigators can require officers or staff to attend interviews. However, those under question can choose to provide a written response or answer “no comment”.</p>
+<p>In serious cases - defined as those that would amount to “at least a written warning” for those involved - the investigators can direct the police force to hold a <a href="https://www.polfed.org/WestMids/advice-regs/misconduct/">misconduct</a> or a gross misconduct hearing.</p>
+<p>Home Office <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/895928/Home_Office_Guidance_on_Police_Misconduct.pdf">legislation states</a> “Effort should be made to ensure as much of a hearing is held in public as possible.”</p>
+<p>However, <a href="https://www.thetimes.co.uk/article/scores-of-rogue-officers-punished-in-secret-hearings-nzgnh68lx">a recent Freedom of Information request by the Times</a> found that around a quarter of cases were decided in private hearings with no member of the public or press allowed to attend.</p>
+<p>While the IOPC can direct individual forces to hold hearings - <strong>it has no power to sanction individuals itself</strong>. This must be done by a panel assembled by the force. This panel must have an independent chairperson but will also include a senior officer of that force.</p>
+<p>The force can either: * Decide to take no further action * Subject the individual to extra training or management action * Provide the individual with a written or final written warning * Dismiss the individual</p>
+<p>The report returned by the IOPC will decide whether an individual or individuals have a misconduct “case to answer”. The legal test used is whether the IOPC believes that a reasonable tribunal properly directed could find misconduct in respect of those persons based on the evidence. However, a panel assembled by the force will decide whether that misconduct can be proven “on the balance of probabilities”, which the IOPC argues is a slightly higher threshold of proof.</p>
+</div>
+<div id="criticism" class="section level2">
+<h2>Criticism</h2>
+<p>Questions have been asked about whether the IOPC has fulfilled its objective to speed up investigations, make them more independent and improve justice.</p>
+<p>In February this year, former High Court judge Sir Richard Henriques wrote an open letter to Home Secretary Priti Patel saying the IOPC’s failure to hold any officers to account over the <a href="https://www.bbc.co.uk/news/uk-49048972">‘Nick’ scandal</a> condoned “police criminality”.</p>
+<p>The Home Affairs Select Committee launched a new inquiry into the effectiveness of the IOPC at the start of 2021.</p>
+<p>Some of the evidence given to the committee so far has been critical.</p>
+<p>Deborah Coles, executive director of INQUEST, spoke at the first hearing in January. The charity provides expertise on state-related deaths and their investigation.</p>
+<p>She told the committee that sanctions against police officers were too rare and the lack of punishment risked undermining confidence in policing.</p>
+<p>This criticism, she said, also extended to the fact that very few serving police officers had faced criminal proceedings for alleged offences carried out in the line of duty.</p>
+<p>INQUEST <a href="https://www.inquest.org.uk/deaths-in-police-custody">has been keeping a tally of the number of people who have died “in police custody or following other forms of contact with the police, as well as vehicular pursuits and road traffic incidents (RTIs)” since 1990</a>. There have been 1,800 to date, but only one serving officer, PC Benjamin Monk, has been convicted of manslaughter since 1990 for an offence carried out in the line of duty. Monk <a href="https://www.bbc.co.uk/news/uk-england-shropshire-57603091">tasered former footballer Dalian Atkinson to the ground in 2016 before kicking him twice in the head</a>.</p>
+<p>The IOPC carries out a number of surveys a year to assess its performance.</p>
+<p>Its poll from 2020 found that 90% of respondents felt the IOPC was good at holding the police accountable for its actions.</p>
+<p>However, only 41% of people from black and ethnic minority groups were confident the police dealt with complaints fairly.</p>
+<p>A <a href="https://policeconduct.gov.uk/sites/default/files/Documents/Who-we-are/accountability-performance/foi/November_2020_Disclosure_Log.pdf">2020 public disclosure (PDF)</a> by the IOPC revealed that, of the 432 individuals referred to the Crown Prosecution Service (CPS) by investigators since 2018, the CPS decided to prosecute just 77.</p>
+<p>Critics say the IOPC, like its predecessor, still has too many former police officers among its staff to claim it is truly independent. The latest figures from September 2020 show <a href="https://policeconduct.gov.uk/sites/default/files/Documents/Who-we-are/accountability-performance/foi/November_2020_Disclosure_Log.pdf">of the 136 serving members of the organisation, 13% of the total workforce, served in the police force (PDF)</a>. It is estimated around a quarter of the IOPC’s investigators were serving police officers.</p>
+<div id="further-reading" class="section level3">
+<h3>Further reading:</h3>
+<ul>
+<li>Fullfact.org: We know of one successful conviction of a police officer for the killing of someone in police custody since 1971 <a href="https://fullfact.org/crime/prosecutions-deaths-police-custody/" class="uri">https://fullfact.org/crime/prosecutions-deaths-police-custody/</a></li>
+</ul>
+</div>
+</div>
+<div id="interviews" class="section level2">
+<h2>Interviews</h2>
+<div id="janet-alder" class="section level3">
+<h3>Janet Alder</h3>
+<p><strong><em>Miss Alder is a member of the United Families and Friends Coalition (UFFC), which is a group of nearly 50 families who have lost individuals in police, psychiatric and prison custody. UFFC has been campaigning for justice for their loved ones and stricter regulation of the police since 1999.</em></strong></p>
+<div id="background-to-the-interview" class="section level4">
+<h4>Background to the interview:</h4>
+<p>Miss Alder’s brother Christopher Alder died on April 1, 1998, shortly after being taken into police custody following a fight outside a nightclub in Hull.</p>
+<p>The former paratrooper spent 11 minutes face down on the floor of Queen’s Gardens Police Station before officers attended to him. He was struggling to breathe because of blood in his airway.</p>
+<p>CCTV from the time showed Mr Alder partially dressed with his trousers around his ankles .</p>
+<p>An inquest into Mr Alder’s death in 2000 returned a verdict of <strong>unlawful killing</strong> and charges of manslaughter and misconduct in a public office were brought against the five officers who failed to give proper care to him in the custody suite.</p>
+<p>All five were acquitted when the trial collapsed in June, 2002.</p>
+<p>In 2006, an IPCC investigation by the then chair Nick Hardwick found “unwitting” racism had played a part in Mr Alder’s death. Alongside the lack of care shown to the Falklands veteran, Mr Hardwick agreed that “monkey imitation” noises could be heard from behind the police counter while Mr Alder lay dead.</p>
+<p>By the time of Mr Hardwick’s IPCC report, four of the five officers had already left the force on a full pension.</p>
+<p>To this date, no individual police officers or staff have been sanctioned over Christopher’s death despite the conclusion by Mr Hardwick and, in 2011, an admission by the UK Government to the European Court of Human Rights that its lack of an effective investigation into Mr Alder’s death was a violation of the convention.</p>
+<p>In 2018, two further officers faced gross misconduct hearings for engaging in a surveillance operation against Miss Alder during her brother’s inquest in 2000. It was alleged the officers involved listened into private, legal conversations between Miss Alder and her barrister.</p>
+<p>Both officers faced no further action after their barristers argued they were acting on orders from superiors.</p>
+<p>Janet Alder launched a crowdfunding appeal to fund a separate legal challenge in 2020 after it emerged Christopher’s body had remained in a police mortuary for 11 years following his death.</p>
+<p>The body the family had buried at Hull’s Northern Cemetery in 2000 was in fact that of Grace Kamara, a 77-year-old woman.</p>
+<p>To this date, the IOPC is yet to reopen that case as a misconduct matter even though the organisation has the power to do so.</p>
+</div>
+<div id="qa" class="section level4">
+<h4>Q&amp;A</h4>
+<p><strong>Q: Do you remember how you reacted when you first saw the video of your brother in the custody suite?</strong></p>
+<p>A: “I couldn’t believe what I was seeing - I couldn’t believe my brother was dragged in with his trousers down to his knees and thrown on the floor.</p>
+<p>“All I could hear was this rasping, breathing sound. He just died on the floor of the custody suite yards away from police officers’ feet. They were there talking about charging him there with more severe charges when they should have been helping him.</p>
+<p>“I had an idea like most people that they would get charged with this. I thought ‘wait until the CPS gets hold of this’.</p>
+<p>“But the CPS were reluctant to charge them with anything. They initially spoke about a charge of misconduct in a public office - but to me I felt it was manslaughter. If they had helped Christopher or attempted to assist him, that’s the only time they would have known whether he could have lived or died. The CPS said they had to prove the officers acted in bad faith and whether they knew he was in that condition.</p>
+<p>“There are 11 minutes of footage showing him being dragged into a custody suite, thrown on the floor and dying. There are things that I’ve seen on the video that have just been dismissed. Those things are still there, to this day.</p>
+<p>“But you’ve got absolutely nobody to approach them with. You find this time and time again in many of these cases.</p>
+<p>“They just ignore certain things, or just dismiss certain things, which wouldn’t be dismissed if this was an ordinary man and woman.”</p>
+<p><strong>Q: A further IPCC hearing in 2018 found two officers who carried out an undercover surveillance operation on you had no case to answer. What did you make of that judgement?</strong></p>
+<p>A: “I remember when I went to the disciplinary hearing, I was behind a screen. That told me nothing was going to happen.</p>
+<p>“No one wanted anyone to know who these officers were and at the end they could just walk away and no one would know anything. I couldn’t see the logic in a misconduct case against the two officers and not the people that authorised the surveillance against me.</p>
+<p>“It just appeared that no one was keeping them in check. They could do exactly what they wanted when they wanted.”</p>
+<p><strong>Q: You initially wrote to the IOPC in the hope it would reopen the case into how your brother’s body could have remained at the mortuary. Will that happen?</strong></p>
+<p>A: “The IOPC have done nothing. We found out that with Christopher’s body the police were using the body for sudden death training. We wrote to the IOPC to see whether they would investigate it and they sent it back to the police to investigate themselves.</p>
+<p>“The police that were investigating Christpher’s body in the mortuary then failed to do the right thing. I’ve got no confidence to approach the IOPC again. They cannot find the evidence to hold anyone to account.”</p>
+<p><strong>Q: You were part of the campaign to see the IPCC reformed - how do you feel about its successor the IOPC and whether it has achieved any of the goals it set out to achieve?</strong></p>
+<p>A: “Well each change of the police complaints system we’ve found has just been a cosmetic change. It is still police officers investigating police officers for a start.</p>
+<p>“They still haven’t got the powers to compel people to answer questions, it’s normally on a voluntary basis and they still haven’t got the power to do anything else but recommend and put recommendations across.</p>
+<p>“When would you ever get a criminal investigation where the defendant is investigating themselves or making the decision about what sentence they’re going to give themselves?</p>
+<p>“It just happens in this situation - there’s no independence there.”</p>
+<p><strong>Q: Where do you go now with your fight for justice?</strong></p>
+<p>A: “What’s more important to me is to be able to live with myself.</p>
+<p>“What they’ve done to Christopher and my family is absolutely appalling.</p>
+<p>“I’m now attempting to take out civil proceedings against South Yorkshire Police who were supposed to thoroughly investigate and find out who swapped Christopher’s body and what went on in the mortuary.</p>
+<p>“I’m not prepared to just walk away, justice is there for everyone and I have to remain faithful to that.”</p>
+<p><strong>Q: How can the IOPC reform?</strong></p>
+<p>A: “Well, I think they shouldn’t be hiring former police officers. Many of the families that have gone through this have had to investigate what’s going on with their loved ones, because the investigations have not been done thoroughly.</p>
+<p>“There are ordinary people out there that are capable of asking logical questions, people can be trained properly to do independent investigations.</p>
+<p>“I think it should be a totally independent body and politically it shouldn’t be constrained in any way.”</p>
+<p><strong>Q: When you look at our findings and when you see that 42% of police officers found to have a misconduct case to answer faced no further action, does that surprise you?</strong></p>
+<p>“Your research doesn’t surprise me one little bit - the police are making the decision to whether their colleagues should be prosecuted. The IOPC can only recommend things while the final decision is down to the police.”</p>
+<p><strong>Q: Do you think there is now a growing sense that the police complaints system has been inadequate - and do you think there is political will to improve that?</strong></p>
+<p>“Among the general public there is a lot more will - look at the reaction to the Bibaa Henry and Nicole Smallman cases or with Sarah Everard.</p>
+<p>“The general public want some kind of independence, but I don’t think we have the political will to do it. I don’t think the politicians have the guts to attack the police or the Police Federation.”</p>
+</div>
+<div id="further-reading-1" class="section level4">
+<h4>Further reading:</h4>
+<ul>
+<li><p>The full IPCC report into Christopher’s death in 2006: <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/250834/0971_i.pdf" class="uri">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/250834/0971_i.pdf</a></p></li>
+<li><p>Christopher Alder: legal action sought over body mix-up: BBC News <a href="https://www.bbc.co.uk/news/uk-england-humber-53893374" class="uri">https://www.bbc.co.uk/news/uk-england-humber-53893374</a></p></li>
+<li><p>Christopher Alder custody death: Sister demands action 20 years on: BBC News <a href="https://www.bbc.co.uk/news/uk-england-humber-43581781" class="uri">https://www.bbc.co.uk/news/uk-england-humber-43581781</a></p></li>
+<li><p>Humberside police inquest: spy officers ‘acting on orders’: BBC News <a href="https://www.bbc.co.uk/news/uk-england-humber-43199911" class="uri">https://www.bbc.co.uk/news/uk-england-humber-43199911</a></p></li>
+<li><p>Christopher Alder death: Government payout to family: BBC News <a href="https://www.bbc.co.uk/news/uk-england-humber-15837490" class="uri">https://www.bbc.co.uk/news/uk-england-humber-15837490</a></p></li>
+</ul>
+</div>
+</div>
+<div id="ken-fero" class="section level3">
+<h3>Ken Fero</h3>
+<p><strong><em>Ken Fero is an award-winning documentary maker, political activist and co-founder of Migrant Media whose films Include Who Polices the Police? And Injustice. Mr Fero campaigns on behalf of a coalition of families whose loved ones have died in police custody known as the United Families and Friends Coalition (UFFC).</em></strong></p>
+<div id="qa-1" class="section level4">
+<h4>Q&amp;A</h4>
+<p><strong>Q: What did you make of the Shared Data Unit’s findings?</strong></p>
+<p>A: “If we go back historically to when we first started working around this issue, which was around the early 90s really, at that time there was the Police Complaints Authority (PCA), which was basically an internal investigation system.</p>
+<p>“It’s a very similar state of affairs to where we are now with the IOPC, which has again shown an absolute failure to investigate things properly and the family is not allowed to be part of the process.</p>
+<p>“We are still in a situation where the State controls the investigation, the State controls the outcomes, the State controls the legal process and there’s no actual independence or external monitoring of this other than from the families themselves.</p>
+<p>“The only meaningful measure of whether the IOPC has been effective is - whether their work has in any way been successfully used to prosecute a police officer for use of violence and the answer is no.</p>
+<p>“There’s never been a situation where the work of the PCA, IOPC has been taken to an inquest and that has resulted in a successful prosecution.</p>
+<p>“The only three prosecutions that we’ve had as a result of a death of a member of the public have been in the cases of Sarah Everard, Dalian Atkinson and Henry Foley, which was a case from the 1980s.</p>
+<p>“Apart from that there’s been over 2,000 documented deaths at the hands of the police and only three prosecutions. The PCA, the IPCC and the IOPC are a fundamental part of the failure of the State to hold officers to account.</p>
+<p>“The data you have really supports what the families have been saying for a long time which is that the system is broken.”</p>
+<p><strong>Q: Quite often the IOPC will find there is a misconduct case to answer and will hand a file to the Crown Prosecution Service, but convictions are, as you say, rare. Why do you think that is?</strong></p>
+<p>A: “I think one of the issues is regarding the actual investigation because when somebody dies after coming into contact with police it’s not identified as a scene of crime. Yet if a member of the public were to use violence against somebody else it would be immediately classified as a suspected murder or manslaughter or whatever.</p>
+<p>“The IOPC are sometimes called into the situation very late and we’ve had cases in the past where the IPCC has been prevented from investigating, as we saw in the case of John Charles De Menezes.</p>
+<p>“However, I would have to say, just in terms of the CPS itself is that when there is public pressure to prosecute they are forced to make that move - as we saw with the case of Sarah Everard, as we saw with the case of Dailian Atkinson. But that is more of a political decision born out of public pressure.</p>
+<p>“The control mechanisms, the IOPC and the CPS, are not really there to give individual justice to families - they are there to protect the image of the police which they value more than the right for life.</p>
+<p><strong>Q: If you were called to give evidence at the Home Affairs Select Committee as part of its report into the IOPC what would you say? How can it improve?</strong></p>
+<p>A: “Well, I wouldn’t go to the committee to be quite honest with you, because I think every committee we’ve had so far and every investigation, if you look at the data.</p>
+<p>“We have to bear in mind that we’ve had now three separate organisations which have all been subject to a review - they have all been looked at by the select committee; they’ve all had so-called independent judges looking as them - there are several cases where coroners have made recommendations for changing changes in the system.</p>
+<p>“It’s just a talking shop and nothing more, they have no interest whatsoever in investigating these cases properly because there is no political will to do that.”</p>
+</div>
+</div>
+<div id="ron-winch" class="section level3">
+<h3>Ron Winch</h3>
+<p><strong><em>Ron Winch is a former serving police officer of 30 years who served in the Met before ending his career as a superintendent at West Midlands Police. He is now a criminology lecturer at Birmingham City University.</em></strong></p>
+<div id="qa-2" class="section level4">
+<h4>Q&amp;A</h4>
+<p><strong>Q: What are your thoughts on the SDU’s investigation broadly?</strong></p>
+<p>A: “The first thing is to provide some context around this.</p>
+<p>“Policing has been going through a process over at least a decade, and we are still going through this, around the professionalism of policing.</p>
+<p>“The idea is that policing has only recently become a degree-entry profession.</p>
+<p>“You look at any profession they have three things in common: they have a professionally recognised qualification, a code of ethics and a body of evidence-based research, so policing has finally caught up in this regard.</p>
+<p>“I think with your report it is really key to emphasise the difference between gross misconduct and misconduct.</p>
+<p>“Gross misconduct is for really serious issues where, if they are found guilty, the individual involved would expect to lose their job.</p>
+<p>“Misconduct is a slightly separate matter - these are areas where you wouldn’t expect to lose your job. For these areas police governance has long been approaching these issues from a place of learning rather than developing a blame culture.</p>
+<p>“The latter can be really toxic, because what it does is force people to try and cover up mistakes, to become ultra-defensive, to cover up whistleblowers.</p>
+<p>“What the <a href="http://policeauthority.org/metropolitan/committees/sop/2010/100401/07/index.html">Taylor reforms</a> said was: if you can develop an environment of learning and development, the public are going to get a better service.</p>
+<p>“But when there is no further action or management action - it’s a bit ambiguous, it really doesn’t mean much to the public.</p>
+<p>“It was certainly my experience that management action against officers who were guilty of misconduct could be a number of things. It could be me saying you need to go on a particular development course or take on extra training in a particular aspect. The public don’t really understand the police misconduct process as it’s very difficult to get your head around.</p>
+<p>“The Taylor reforms had good intentions but I don’t think they have resonated with the public,</p>
+<p>“By and large though I think the IOPC gets it about right.”</p>
+<p><strong>Q: Can you expand on that?</strong></p>
+<p>“I think it’s not perfect but it is better than what we had - and that is for a number of reasons.</p>
+<p>“A major factor for me was the fact the IPCC employed a lot more police officers. While that brought with it a lot more knowledge about police policing and police culture - it was very difficult to justify it being independent. The IOPC is more independent - it has its own management structure, it trains its own investigators, I think that’s healthy.</p>
+<p>“But I do think it can still improve.</p>
+<p>“One thing it still needs to improve on is the length of time it takes to investigate matters.”</p>
+<p><strong>Q: In what other ways could the IOPC and policing in general improve?</strong></p>
+<p>A: “The IOPC could certainly do with more resources and there is work the IOPC could do in relation to building better relationships with police forces and emphasizing the public good that it does.</p>
+<p>“It needs to be more influential in making policy - that’s how it can really proclaim its independence.</p>
+<p>“To me there are a number of issues with policing culture that need improving. There needs to be better vetting of individuals becoming police officers and we see with the recent high-profile <a href="https://www.bbc.co.uk/news/uk-58760933">Whatsapp groups where the officers involved are making extremely offensive comments</a> there are still issues with misogyny and toxic masculinity.”</p>
+<p><strong>Q: Some of the interviewees for this investigation have argued the powers of the IOPC need to be extended so it can punish individuals. Do you agree with this?</strong></p>
+<p>“I can hear the Police Federation shouting in my ear as I say this, but the question is what is right for trust and confidence? Would the public benefit? And to me, that’s an area we could consider but I could see that would be hugely controversial with the Police Federation.</p>
+<p>“There would be resistance, but would it increase trust and confidence? I think it probably would.</p>
+<p>“We ask our police officers to make decisions that would require the judgement of Solomon, so this has to be done proportionally. If we are going to give the IOPC more power we need to make sure that power is monitored.</p>
+<p>“It would be a sad day if officers became so risk averse they couldn’t carry out their duties. If they make a decision not to stop and search someone who goes on to cause harm. We can’t have a system where officers are too risk averse to apprehend criminals because they are worried their job and liberty could be at risk. There is always a balance that needs to be struck.”</p>
+</div>
+</div>
+</div>
+<div id="right-of-reply" class="section level2">
+<h2>Right of reply</h2>
+<div id="police-federation-of-england-and-wales" class="section level3">
+<h3>Police Federation of England and Wales:</h3>
+<p><strong>Police Federation of England and Wales National Vice Chair Ché Donald said:</strong></p>
+<p>“In January we gave evidence to Home Affairs Select Committee as part of its inquiry into the Independent Office for Police Conduct and the police complaints system.</p>
+<p>“For years we have been concerned over the time it takes to conclude police disciplinary investigations. Protracted and disproportionate misconduct investigations have ruined the lives of too many police officers and their families, by damaging their mental health due to the stress.</p>
+<p>“Additionally, delays are detrimental to public confidence in the system, with complainants also being affected by any delays.</p>
+<p>“We are continuing to press the Government to introduce legislation which would give legally qualified persons power to impose deadlines when police disciplinary investigations hit the one-year mark as part of our Time Limits campaign.</p>
+<p>“It is vital we have an independent, impartial body that has oversight over policing so officers are rightly held accountable for their actions, but the IOPC often inexplicably pursues vexatious allegations, which may be a reason why a significant proportion of cases have resulted in no further action.</p>
+<p>“We hope the findings from the committee will be used to make a tangible difference and establish a fairer system for all.</p>
+<p><strong>The accusation from a source is that the Police Federation regularly and actively coaches individuals to answer no comment when questioned by the IOPC – and that this is a major contributor to what Janet Alder describes as a ‘culture of silence’. Do you agree with this statement?</strong></p>
+<p>“We have often experienced issues with disclosure with officers asked to comment on evidential materials without seeing them.</p>
+<p>“Everyone is entitled to fair representation and the many types of Federation advice offered are to ensure that is the case.</p>
+<p>“We highlighted this to MPs during the HASC inquiry and we have since began to work with IOPC investigators to assist them with improvements to disclosure training.”</p>
+</div>
+<div id="crown-prosecution-service-cps" class="section level3">
+<h3>Crown Prosecution Service (CPS)</h3>
+<p><strong>A CPS spokesman said:</strong></p>
+<p>“We do not hesitate to prosecute officers or other members of police staff whenever our legal test is met.</p>
+<p>“Earlier this year, an officer from West Midlands Police was jailed after having been convicted of manslaughter following a prosecution by the CPS.</p>
+<p>“While there are challenges to prosecuting police officers for their conduct while acting in the course of their duties we have never shied away from prosecuting these cases”.</p>
+<div id="additional-points" class="section level4">
+<h4>Additional points</h4>
+<p>The CPS’s role is not to investigate cases but to consider cases after they have been referred by the IOPC.</p>
+<ul>
+<li>Many of the misconduct proceedings considered by the IOPC relate to disciplinary misconduct. This is different from the criminal offence of misconduct in public office.</li>
+<li>Legal guidance on misconduct in public office offences can be found here: <a href="https://www.cps.gov.uk/legal-guidance/misconduct-public-office" class="uri">https://www.cps.gov.uk/legal-guidance/misconduct-public-office</a></li>
+</ul>
+</div>
+</div>
+<div id="iopc" class="section level3">
+<h3>IOPC</h3>
+<p><strong>Director of strategy and impact, Kathie Cashell:</strong></p>
+<div id="qa-3" class="section level4">
+<h4>Q&amp;A</h4>
+<p><strong>Q: What do you make of the criticism that the IOPC is still not independent enough?</strong></p>
+<p>A: “These are conversations that have been happening for a long time.</p>
+<p>“I think it’s really important we can understand that, in terms of the former officers we employ - I think having a balance of skill sets is really important. Currently, former police employees make up just less than a quarter of our investigative staff. Our director general and all of the regional directors who lead the organisation are not allowed to have worked for the police in any capacity. Some of those skills from former officers are really important as we need to understand what we are investigating - but all of our investigators are retrained when they come to us.</p>
+<p>“The IOPC is just one part of the system - we investigate the most serious complaints and we give an opinion as to whether there is a case to answer for misconduct. The misconduct panels themselves have been reformed over time in response to the concerns about them being chaired by police officers. They are now chaired by legally qualified chairs who are independent and there are laypersons on that panel as well.</p>
+<p>“The IOPC will give an opinion as to whether there is a case to answer. The panel will then apply a different test, a higher legal threshold, and will come to a view. In the new system which we pushed for, if we say there should be a hearing there is one and we have also been given power to present our own cases at that panel.”</p>
+<p><strong>Q: Should the IOPC have powers to sanction officers itself?</strong></p>
+<p>“We have had significant new powers from February 2020 - such as the power to direct forces to hold hearings rather than recommended they do. The IOPC isn’t judge and juror - we investigate and we give an opinion.</p>
+<p>“I don’t think this is about new powers for the organisation, but I do think there is a question to think about when it comes to the panels. It i s not surprising they come to a different conclusion to us sometimes, we would expect that completely. But there are questions to be asked about whether they are consistent and whether the rationale for those decisions is transparent enough to the public. There is also a question around whether the complainants and their families have as much of a voice as we would want to in those proceedings.</p>
+<p>“There is sanctions guidance set down by the Royal College of Policing, which all legally qualified chairs should pay regard to - but again I think we want to ensure that is being applied consistently.”</p>
+<p><strong>Q: The Police Federation says the IOPC too often investigates vexatious allegations against employees. Do you agree with that?</strong></p>
+<p>“I would question where the evidence is for that.</p>
+<p>“We have published three years of outcomes data - that shows we investigated nearly 1,800 subjects. We found there was a case to answer in 35% of those.</p>
+<p>“When you look at things that stopped short of misconduct proceedings - so unsatisfactory performance or reflective action procedures - 60% of the individuals we investigated needed some form of action after those cases. Police forces agreed with us on 64% of occasions. I just don’t see where the evidence is that the IOPC is pursuing vexatious allegations.”</p>
+<p><strong>Q: Does it frustrate you that there are cases where no further action is given even when misconduct is proven?</strong></p>
+<p>“I think sanctions do play a role but I think accountability takes many forms. Answering for your actions and explaining them in public is accountability itself. I don’t think misconduct sanctions are the only measure of performance in this system, but I agree they are important.</p>
+<p>“I do think it’s really important that those panels operate consistently and the rationale behind the decisions they make are transparent. We would welcome a review that looks into whether they are consistent and transparent.”</p>
+<p><strong>Q: The Home Affairs Select Committee is set to make recommendations off the back of its forthcoming report. What do you think they should be?</strong></p>
+<p>“We asked the committee not for new powers but for better collaboration across the system.</p>
+<p>“The IOPC is one player in the police complaints system, and with better cooperation we can improve the timeliness of proceedings. I think cultural change within the complaint system itself and policing is needed so it is not so defensive when things go wrong. We need a police force that is really open to working to resolve those issues, to really listening and to taking the opportunity to learn. We want it to become the norm for people to call out behavior that does not meet professional standards and that happens from within.</p>
+<p>“It is a really complex system and there is a power balance between the complainants and the complained about. There is a lot more the system can do to support that. There is a question as to whether there should be more support, more advocacy for people going through that complaints process.”</p>
+</div>
+</div>
+</div>
+<div id="types-of-case" class="section level2">
+<h2>Types of case</h2>
+<p>Every misconduct investigation carried out by the IOPC is given a broad ‘tag’ depending on the type of misconduct being investigated. <strong>A single investigation can be given multiple tags, which is why there are more tags than cases in the table listed below.</strong></p>
+<p>A third of the investigations where there was a misconduct case to answer related to “death and serious injury”, 87.</p>
+<p><em>NB: The tags “child sexual abuse” and “domestic abuse” relate to the way the force handled inquiries into those matters and are not an accusation that the officer has been engaged in behaviour of that sort. Cases of sexually inappropriate behaviour are tagged under “corruption and abuse of power.”</em></p>
+<div id="htmlwidget-ab133803483680e50d56" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ab133803483680e50d56">{"x":{"style":"bootstrap","filter":"none","vertical":false,"caption":"<caption>Analysis by the BBC Shared Data Unit<\/caption>","data":[["1","2","3","4","5","6","7","8","9"],["Death and serious injury","Custody and detention","Use of force and armed policing","Welfare and vulnerable people","Discrimination","Corruption and abuse of power","Road traffic incidents","Child sexual abuse","Domestic abuse"],[87,65,29,26,18,16,12,5,2],["33%","25%","11%","10%","7%","6%","5%","2%","1%"]],"container":"<table class=\"table table-striped table-hover row-border order-column display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Category (tag)<\/th>\n      <th>Frequency of tag in misconduct investigations where there was a case to answer<\/th>\n      <th>Percentage of misconduct cases to answer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":9,"autoWidth":true,"bFilter":false,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"orderClasses":false,"lengthMenu":[9,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="misconduct-rates" class="section level2">
+<h2>Misconduct rates</h2>
+<p>In terms of raw numbers - the force with the most staff subject to misconduct claims since 2018 was the Metropolitan Police, the largest force in England and Wales. A total of 64 Met Police officers and staff were subject to misconduct procedures. The latest figures show the Met has over 44,000 full time officers and staff (from September 2020).</p>
+<p>But when adjusting for the size of the force, we can see the rate of misconduct cases per force was broadly similar.</p>
+<p><strong>There was no statistically significant difference between forces</strong>. North Wales Police had the highest rate of misconduct cases to answer in England and Wales: 2.9 full time employees per 1,000, with only marginal differences across all the 39 forces in England and Wales in our study. The Met was 17th on the list with a rate of 1.4 per 1,000 staff full-time employees, but <strong>this variation can be attributed to the size of the force</strong>.</p>
+<div id="htmlwidget-e83d614f00e62974c32e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e83d614f00e62974c32e">{"x":{"style":"bootstrap","filter":"none","vertical":false,"caption":"<caption>Analysis by the BBC Shared Data Unit<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39"],["North Wales Police","Leicestershire Police","Dorset Police","Hertfordshire Constabulary","Cambridgeshire Constabulary","West Yorkshire Police","Surrey Police","Thames Valley Police","Avon and Somerset Constabulary","Staffordshire Police","Sussex Police","Northamptonshire Police","Northumbria Police","Bedfordshire Police","Essex Police","South Wales Police","Metropolitan Police","Devon and Cornwall Constabulary","Norfolk Constabulary","Gwent Police","South Yorkshire Police","West Midlands Police","Merseyside Police","Warwickshire Police","Cleveland Police","Greater Manchester Police","Durham Constabulary","West Mercia Police","Hampshire Constabulary","Nottinghamshire Police","Cheshire Constabulary","Cumbria Constabulary","Wiltshire Constabulary","Suffolk Constabulary","Kent Police","British Transport Police","North Yorkshire Police","Derbyshire Constabulary","City of London Police"],[8,10,7,10,6,22,8,15,11,6,10,4,9,4,9,8,64,8,4,3,6,24,7,2,2,11,2,3,3,2,2,1,1,1,3,2,1,1,1],[2781,3640,2623,3849,2480,9703,3813,7677,5693,3148,5310,2299,5246,2364,5489,5454,44261,5539,2881,2170,4838,20035,5932,1852,1998,11017,2222,4017,4952,3497,3744,1921,2115,2166,6524,4873,2822,3433,3744],[2.9,2.7,2.7,2.6,2.4,2.3,2.1,2,1.9,1.9,1.9,1.7,1.7,1.7,1.6,1.5,1.4,1.4,1.4,1.4,1.2,1.2,1.2,1.1,1,1,0.9,0.7,0.6,0.6,0.5,0.5,0.5,0.5,0.5,0.4,0.4,0.3,0.3]],"container":"<table class=\"table table-striped table-hover row-border order-column display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Force<\/th>\n      <th>Total officers/staff with misconduct case to answer since 2018<\/th>\n      <th>Total FTE staff: September, 2020<\/th>\n      <th>Rate of misconduct per 1,000 staff<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"autoWidth":true,"bFilter":false,"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
