@@ -1,0 +1,298 @@
+---
+title: |
+  ![](https://raw.githubusercontent.com/sduiopc/test1/branch1/LNP%20Header-01.jpg){align=right width=40%}  
+  Force analysis: `r params$force`
+output: 
+  html_document:
+params:
+  force: "Metropolitan Police"
+---
+
+[Back to main page](index.html)
+
+***This story is available for use by the BBC's local news partners.  Please do not share outside of the network.  It is under strict embargo.***
+
+```{r add header images, echo=FALSE}
+#code adapted from https://stackoverflow.com/questions/43009788/insert-a-logo-in-upper-right-corner-of-r-markdown-html-document/43010632
+#htmltools::img(src ="https://raw.githubusercontent.com/sduiopc/test1/branch1/LNP%20Header-01.jpg", 
+ #              alt = 'logo', 
+  #             style = 'position:absolute; top:0; right:0; padding:10px;width:30%')
+```
+
+
+```{r setup, include=FALSE}
+#this saves us having to include these parameters in every code chunk
+knitr::opts_chunk$set(echo = F,
+                      warning = F,
+                      message = F)
+```
+
+```{r fetch data}
+#store the url of the misconduct sheet in the Google doc (published as a CSV)
+justmisconducturl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSC_a4_djy3WbYcMKsZJslGxIjz4Hl5JDbgXnGO9Sf4Xx9PHKmEpN3s5WepP9IWU2qHzcqUZZFpRZlQ/pub?gid=807516129&single=true&output=csv"
+#overwrite with an updated spreadsheet
+justmisconducturl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vQl7Qa0qk4BGjFH9puBAN4aheTDKV1dBhcAGQXSFLSpukDaEQDEmijGMOxXcjw9F-gUfUSSjVoLVUQs/pub?gid=807516129&single=true&output=csv"
+
+#import that data
+justmisconduct <- read.csv(justmisconducturl, stringsAsFactors = F)
+#do the same for the 'forces analysis' sheet
+forceanalysisurl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSC_a4_djy3WbYcMKsZJslGxIjz4Hl5JDbgXnGO9Sf4Xx9PHKmEpN3s5WepP9IWU2qHzcqUZZFpRZlQ/pub?gid=2057036504&single=true&output=csv"
+#overwrite with the live pivot version
+forceanalysisurl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSC_a4_djy3WbYcMKsZJslGxIjz4Hl5JDbgXnGO9Sf4Xx9PHKmEpN3s5WepP9IWU2qHzcqUZZFpRZlQ/pub?gid=1235973989&single=true&output=csv"
+#overwrite with an updated spreadsheet
+forceanalysisurl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vQl7Qa0qk4BGjFH9puBAN4aheTDKV1dBhcAGQXSFLSpukDaEQDEmijGMOxXcjw9F-gUfUSSjVoLVUQs/pub?gid=1174732273&single=true&output=csv"
+
+
+#while testing we use this fake data
+#fakedataurl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMLZJaBx-BknWGEvitVulHDmJWTFUrko7nOuUWpRRBp3cBV6-67o6-iI9Oyc9CVSEpuDNtQ49M0EJM/pub?gid=1434769906&single=true&output=csv"
+#forceanalysisurl <- fakedataurl
+
+forceanalysis <- read.csv(forceanalysisurl, stringsAsFactors = F)
+#remove both urls
+rm(justmisconducturl, forceanalysisurl)
+```
+
+```{r import packages}
+#import the tidyverse which includes dplyr, that we'll use
+library(tidyverse)
+#The datatables package 
+library(DT)
+```
+
+
+
+
+```{r filter and subset}
+#filter to the columns we want
+filtereddf <- justmisconduct %>%
+  dplyr::select("Heading", "Content", "Force", "tags","url", "Date")
+
+#filter to those for this force, and specified cols
+subsetdf <- filtereddf %>%
+  dplyr::filter(Force == params$force)  %>%
+  dplyr::select("Heading", "Content", "tags","url", "Date")
+
+```
+
+```{r clean junk chars}
+#some characters such as apostrophes, dashes, and a couple spaces, are represented by junk characters that need cleaning up. 
+subsetdf$Content <- gsub("¬¨‚Ä†"," ",gsub("‚Äö√Ñ√¨","-",gsub("‚Äö√Ñ√≤","'",gsub("‚Äö√Ñ√¥","'",subsetdf$Content))))
+#This one is used for curly quotation marks
+subsetdf$Content <- gsub("‚Äö√Ñ√∫",'"', subsetdf$Content)
+subsetdf$Content <- gsub("‚Äö√Ñ√π",'"', subsetdf$Content)
+#repeat for headings
+subsetdf$Heading <- gsub("¬¨‚Ä†"," ",gsub("‚Äö√Ñ√¨","-",gsub("‚Äö√Ñ√≤","'",gsub("‚Äö√Ñ√¥","'",subsetdf$Heading))))
+subsetdf$Heading <- gsub("‚Äö√Ñ√∫",'"', subsetdf$Heading)
+subsetdf$Heading <- gsub("‚Äö√Ñ√π",'"', subsetdf$Heading)
+```
+
+
+```{r import tag data}
+#collapse column into a single string
+tagscollapsed <- paste(subsetdf$tags, collapse = '')
+#remove the commas and square brackets - they have to be escaped here in the regex
+tagscollapsed <- gsub('\\[|\\]|,','',tagscollapsed)
+#remove the force name
+tagscollapsed <- gsub(pattern = params$force, replacement = "", tagscollapsed)
+#split on the apostrophe
+tagsvec <- str_split(tagscollapsed, pattern = "'")
+#create a table of those tags, removing the empty ones
+tagsdf <- data.frame(table(tagsvec)) %>%
+  dplyr::filter(tagsvec != "") %>%
+  dplyr::filter(tagsvec != " ") %>%
+  dplyr::arrange(by_group = -Freq) #sort descending by freq column
+#calculate as a percentage of reports
+tagsdf$percofreports <- tagsdf$Freq/nrow(subsetdf)
+#create column name for that
+percheading <- paste0("% of ",nrow(subsetdf)," reports")
+#change column names
+colnames(tagsdf) <- c("tag", "number of reports", percheading)
+```
+
+
+
+```{r create string}
+#filter the data to just this force
+forcesubset <- forceanalysis %>% dplyr::filter(Force == params$force)
+#fetch data points
+casecount <- forcesubset$COUNTA.of.MISCONDUCT.case.to.answer..TRUE.FALSE.
+officercount <- forcesubset$SUM.of.Number.of.OFFICERS.identified.as.having.a.misc.case.to.answer
+staffcount <- forcesubset$SUM.of.Number.of.POLICE.STAFF.identified.as.having.a.misc.case.to.answer
+customstring1 <- paste0("In **",casecount,"** of those reports, investigators found at least one officer or member of police staff had a case to answer for misconduct, and advised the force to hold a disciplinary panel. 
+
+
+
+In these cases, the IOPC identified **",officercount," officer(s)** and **",staffcount," police staff** as having a case to answer for misconduct.")
+
+#create the second line on retired officers - first fetch the variables
+retiredofficers <- forcesubset$SUM.of.Number.of.officers.who.left.force.before.tribunal.end
+retiredstaff <- forcesubset$SUM.of.Number.of.police.staff.who.left.force.before.tribunal.end
+#then insert into a string
+customstring2 <- paste0("**",retiredofficers," officer(s)** and **",retiredstaff," staff** had retired or left the force by the time the tribunal was held.")
+
+#add the proven cases
+officer.misc <- forcesubset$SUM.of.Number.of.OFFICERS.found.guilty.of.misconduct.misconduct.agreed.by.force
+staff.misc <- forcesubset$SUM.of.Number.of.STAFF.found.guilty.of.misconduct.following.tribunal.misconduct.agreed.by.force
+customstring3 <- paste0("When the case was heard by the force’s tribunal, misconduct was proven against **",officer.misc," officer(s)** and **",staff.misc," staff**.")
+
+#add the cleared cases
+officer.cleared <- forcesubset$SUM.of.Number.of.OFFICERS.found.NOT.guilty.misconduct.not.agreed
+staff.cleared <- forcesubset$SUM.of.Number.of.staff.found.NOT.guilty..misconduct.not.agreed
+customstring4 <- paste0("The force panel cleared **",officer.cleared," officer(s)** and **",staff.cleared," staff**")
+
+#create the bullet points - first 'no further action' numbers
+officer.nfa <- forcesubset$SUM.of.Number.of.officers.where.no.action.was.taken
+staff.nfa <- forcesubset$SUM.of.Number.of.staff.where.no.action.was.taken
+bullet1 <- paste0("**",officer.nfa," officers** and **",staff.nfa," staff** faced no further action.")
+#then management action numbers
+officer.ma <- forcesubset$SUM.of.Number.of.officers.dealt.with.by.management.action.extra.learning
+staff.ma <- forcesubset$SUM.of.Number.of.police.staff.dealt.with.by.management.action
+bullet2 <- paste0("**",officer.ma," officers** and **",staff.ma," staff** were given management action.")
+#fetch written warning numbers
+officer.ww <- forcesubset$SUM.of.Number.of.OFFICERS.given.verbal.or.written.warning
+staff.ww <- forcesubset$SUM.of.Number.of.STAFF.given.verbal.or.written.warning
+bullet3 <- paste0("**",officer.ww," officers** and **",staff.ww," staff** were given a written warning.")
+#fetch dismissed
+officer.dism <- forcesubset$SUM.of.Number.of.OFFICERS.dissmissed.as.result.of.misconduct
+staff.dism <- forcesubset$SUM.of.Number.of.police.STAFF.dissmissed.as.a.result.of.misconduct
+bullet4 <- paste0("**",officer.dism," officers** and **",staff.dism," staff** were dismissed.")
+
+
+
+
+#create the next string - filter the dataset on tags
+injurytotal <- tagsdf %>% dplyr::filter(tag == "Death and serious injury")
+injurytotal <- injurytotal$`number of reports`
+if(length(injurytotal) == 0){
+  injurytotal <- "None"
+}
+#insert the value in the string
+injurystring <- paste0("**",injurytotal,"** of the cases referred to death or serious injury having occurred shortly after contact with police")
+#customstring8 <- "The IOPC made xx recommendations on behalf of the force to improve practice. Xx were accepted."
+```
+
+We’ve analysed reports into investigations published into the conduct of officers and staff at `r params$force` since the IOPC was formed in 2018.
+
+`r customstring1`
+
+`r customstring2`
+
+`r customstring3`
+
+`r customstring4`
+
+The outcomes were as follows:
+
+* `r bullet1`
+* `r bullet2`
+* `r bullet3`
+* `r bullet4`
+
+`r injurystring`
+
+You can read the reports below.
+
+Please note, these are only the cases where the IOPC judged there was a case to answer for misconduct. Also, in a small number of cases the total number of officers and staff identified did not match the number given sanctions. This is because the outcomes for those individuals were not listed in the report
+
+
+### Explore the cases
+
+The table below shows misconduct cases involving this force. 
+
+The table does not contain the full text for the IOPC report. Please click on a link to see the full description of the case. 
+
+```{r fix links}
+if (nrow(subsetdf) > 0){
+  #In order to make the links in the data working HTML links, we need to add the HTML tags
+  subsetdf$url <- paste0("<a href='",subsetdf$url,"'>",subsetdf$url,"</a>")
+  #let's strip out the square brackets from the tags too
+  #we have to escape the square brackets as they're special characters in regex
+  subsetdf$tags <- gsub("\\]","",gsub("\\[","",subsetdf$tags))
+}
+```
+
+```{r table js}
+#Create the datatable, adding a filter and setting other options
+#Add a caption if you want
+#the render = JS section truncates the 'content' column to 1000 characters
+#see https://stackoverflow.com/questions/40280287/option-to-limit-displayed-length-of-text-strings-in-data-tables for JS
+#see https://github.com/rstudio/DT/issues/29 on setting width
+#the escape = F ensures that the HTML links work - see https://stackoverflow.com/questions/42075532/clickable-link-in-datatable-rmarkdown
+DT::datatable(subsetdf, 
+              style = 'bootstrap', 
+              caption = 'Analysis by the BBC Shared Data Unit', 
+              filter = 'top', 
+              options = list(pageLength = 5,
+                             scrollX=TRUE,
+                             autoWidth = TRUE,
+                             columnDefs = list(list(targets = c(2),
+                                                    width = '400px',
+                                                    render = JS(
+                                                      "function(data, type, row, meta) {",
+                                                      "return type === 'display' && data.length > 1000 ?",
+                                                      "'<span title=\"' + data + '\">' + data.substr(0, 1000) + '...</span>' : data;",
+                                                      "}"
+                                                    )
+              ))
+              ), escape = F)
+
+```
+
+
+### Breakdown of cases
+
+The table below shows a breakdown of classifications of misconduct cases.
+
+Every misconduct investigation carried out by the IOPC is given a broad ‘tag’ depending on the type of misconduct being investigated. 
+
+A single investigation can be given multiple tags, which is why there may be more tags than cases in the table listed below. 
+
+Percentages can therefore add up to more than 100% because one case can have more than one tag.
+
+Investigations may be given tags for each force involved. In the table below we have not included the tag for this force, but tags for other forces may appear.
+
+*NB: The tags "child sexual abuse" and "domestic abuse" relate to the way the force handled inquiries into those matters and are not an accusation that the officer has been engaged in behaviour of that sort. Cases of sexually inappropriate behaviour are tagged under "corruption and abuse of power."*
+
+
+```{r table of cases}
+#Create the datatable, adding a filter and setting other options
+#Add a caption if you want
+DT::datatable(tagsdf, 
+              style = 'bootstrap', 
+              caption = 'Analysis by the BBC Shared Data Unit. Note: percentages add up to more than 100% because one case can have more than one tag', 
+              options = list(pageLength = 10, autoWidth = TRUE, bFilter = F)
+              ) %>%
+  DT::formatPercentage (columns = percheading) 
+#see https://rdrr.io/cran/DT/man/formatCurrency.html
+```
+
+### IOPC recommendations 
+
+```{r create vars for recoms}
+#filter to the columns we want, just recommendations, just this force
+recsdf <- justmisconduct %>%
+  dplyr::select("Heading", "Content", "Force", "tags","url", "Date", "What.were.the.recommendations.") %>%
+  dplyr::filter(!is.na(What.were.the.recommendations.)) %>%
+  dplyr::filter(Force == params$force) 
+
+#rename the last col
+colnames(recsdf)[7] <- "recommendation"
+
+recscount <- nrow(recsdf)
+rec1 <- ""
+#change the grammar based on the number of recommendations
+if (recscount == 1){
+  sentence <- paste0(recscount," recommendation")
+  #store the recommendation
+  rec1 <- paste0("This was: \n\n> *", recsdf$recommendation,"*")
+  } else if (recscount > 1){
+  sentence <- paste0(recscount," recommendations")
+  rec1 <- "For full data, see the recommendations column in the full spreadsheet provided."
+  } else {
+    sentence <- "no recommendations"
+  }
+
+
+```
+
+The IOPC has made `r sentence` in relation to misconduct cases involving `r params$force`. `r rec1`

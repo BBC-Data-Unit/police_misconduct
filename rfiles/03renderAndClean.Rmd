@@ -1,0 +1,151 @@
+---
+title: "Render and clean"
+output: md_notebook
+---
+
+# Rendering the website and cleaning the HTML files
+
+* In notebook 1 a template was created that could be used to generate text descriptions and tables for each force
+* In notebook 2 dozens of different webpages were generated from that template
+
+This notebook details the next step: combining those pages into a website, and generating an index page.
+
+## Store a list of markdown files
+
+First, we need to store a list of all the files that are going to be used. These are in a folder called 'site'.
+
+We then loop through those file names and, for those which end in '.md', we use those names to generate some code and store it in a YAML file.
+
+```{r get file names and generate yaml}
+#get the names of all the html files
+filenames <- list.files("site")
+
+#store the string we want to start out yaml file with
+yamlstring <- 'name: "iopc"
+navbar:
+  title: "Police misconduct"
+  left:
+    - text: "Forces"
+      menu:'
+
+#create an empty vector to store all the strings we're about to create
+strvec <- c()
+
+#loop through the filenames 
+for (i in filenames){
+  if(substring(i,nchar(i)-2,nchar(i)) == ".md" ){
+    #replace spaces with dashes, and replace the file extension with .html
+    htmlversion <- gsub(" ","-",gsub(".md",".html",i))
+    #get the name by removing the file extension. Also remove 'Police'
+    textversion <- gsub(" Police| Constabulary","",gsub(".md","",i))
+    #create a string for the YAML file by inserting those
+    fullstring <- paste0('
+      - text: "',textversion,'"
+        href: ',htmlversion)
+    strvec <- c(strvec,fullstring) #add to the collection of strings 
+  }
+}
+
+#add the initial string
+strvec <- c(yamlstring, strvec)
+
+#create a yaml file with that string of text in it
+write(strvec, file = "site/_site.yml")
+```
+
+## Render the files
+
+Finally, we use the `render_site` function to specify the folder containing all the files for the site. The YAML file will be used to generate a menu, among other things.
+
+```{r render site}
+#now render the site
+rmarkdown::render_site("site")
+```
+
+We also want to render the index file. 
+
+## Clean the HTML outputs
+
+The force pages have some HTML which needs to be removed because it is being rendered as paragraph text: `<p>&lt;!DOCTYPE html&gt;</p>`.
+
+```{r list html files}
+#get the names of all the html files
+htmlfiles <- list.files("site/_site")
+#read in the first one
+testfile <- read_lines(paste0("site/_site/",htmlfiles[1]))
+#show the 170th line
+testfile[170]
+#replace it
+testfile[170] <- ""
+testfile[170]
+#save it as a HTML file to check
+write(x = testfile, file=paste0("site/_site/","testfile.html"))
+#remove the variable
+rm(testfile)
+```
+
+Once tested, we embed that process in a loop which tests if the file is one of the force pages (all of which end in 'Police.html' or 'Constabulary.html') and then removes the offending line if so.
+
+```{r clean all files}
+#loop through the list of filenames
+for (i in htmlfiles){
+  print(i)
+  #extract the last 5 chars
+  filetype <- substring(i,nchar(i)-5,nchar(i))
+  #check if they end in e.html or y.html
+  ey <- filetype == "e.html"|filetype == "y.html"
+  print(filetype)
+  #this should be TRUE or FALSE
+  print(ey)
+  #if it's a police/constabulary html file
+  if(ey){
+    #read in that file
+    thisfile <- read_lines(paste0("site/_site/",i))
+    #show first line
+    print(thisfile[170])
+    #if it has that text
+    if (thisfile[170] == "<p>&lt;!DOCTYPE html&gt;</p>"){
+      print("OH!")
+      #replace specified string
+      thisfile[170] <- ""
+      write(x = thisfile, file=paste0("site/_site/",i))
+    }
+    else {
+      print("NOPE")
+    }
+  }
+  else {
+    print("NOT THIS ONE")
+  }
+}
+```
+
+### Clean up the index page menus
+
+We also need to clean the dropdown menu in the index page: by default this lists all the forces but is too long to fit on one screen and cannot be scrolled. 
+
+So we need to split it into two menus instead.
+
+```{r clean index menu}
+#the index file should be the 20th in the previous list
+htmlfiles[20]
+#read it in
+indexfile <- readr::read_lines("site/_site/index.html")
+#line 257 should be the title of the dropdown, 'Forces'
+indexfile[257]
+#change it
+indexfile[257] <- "Forces A-M"
+indexfile[257]
+#line 325 should be the beginning of the first N force, Norfolk
+indexfile[325:326]
+#add HTML which closes the first part of the list and begins a second list with a dropdown button
+#code taken from https://github.com/sduiopc/test1/blob/8938ef49cf45eb5cb67ab73974c8bdbf33aee4c5/index.html
+#which is the version where I did this manually
+indexfile[325] <- '</ul></li></ul><ul class="nav navbar-nav navbar-right"></ul><ul class="nav navbar-nav"><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Forces N-Z<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li>'
+indexfile[325:326]
+#save file
+write(x = indexfile, file=paste0("site/_site/","index.html"))
+#remove the variable
+rm(indexfile)
+```
+

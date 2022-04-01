@@ -1,0 +1,38 @@
+---
+title: "Rendering HTML outputs"
+output: html_notebook
+---
+
+This notebook renders HTML outputs from the 01 notebook through *parameterisation*.
+
+First we import the data in order to generate a list of forces that we can use to specify the parameters and name the files.
+
+```{r import data}
+#store the url of one sheet in the google doc
+forceanalysisurl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vQl7Qa0qk4BGjFH9puBAN4aheTDKV1dBhcAGQXSFLSpukDaEQDEmijGMOxXcjw9F-gUfUSSjVoLVUQs/pub?gid=1174732273&single=true&output=csv"
+#while testing we use this fake data
+#fakedataurl <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMLZJaBx-BknWGEvitVulHDmJWTFUrko7nOuUWpRRBp3cBV6-67o6-iI9Oyc9CVSEpuDNtQ49M0EJM/pub?gid=1434769906&single=true&output=csv"
+#forceanalysisurl <- fakedataurl
+#fetch the data at that url
+grabtheforces <- read.csv(forceanalysisurl, stringsAsFactors = F)
+#remove the last 'grand total' row
+grabtheforces <- grabtheforces[-40,]
+#just get one column - it's now a vector
+force <- grabtheforces$Force
+#remove BTP (3rd force) as it causes an error and we don't need it anyway
+force <- force[-3]
+```
+
+The code below takes the Rmd file named and renders a .md file for each force (even though the file itself specifies html_document as its output). This is because the next notebook then renders the entire folder as a website, so the HTML in those .md files becomes active.
+
+```{r generate html files}
+#store the location of the paramsfile to use below
+paramsfile <- "01forcetemplateMDversion.Rmd"
+#loop through all regions - but this just creates the same file and overwrites it each time, ending with the last item (Yorkshire)
+for (r in force) {
+  rmarkdown::render(paramsfile, params = list(force = r), output_file = paste(sep="",'site/',r,'.md'),
+    envir = parent.frame())
+}
+#more at https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-render.html
+```
+
