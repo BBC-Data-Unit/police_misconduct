@@ -49,7 +49,7 @@ For this project we shared:
 
 ## Partner usage
 
-The story featured on BBC Online, BBC Radio Leeds and BBC Radio Sheffield. It was also sidcussed in debates on Radio Four's Today and Sunday Morning on BBC One. 
+The story featured on BBC Online, BBC Radio Leeds and BBC Radio Sheffield. It was also discussed in debates on Radio Four's Today and Sunday Morning on BBC One. 
 
 The BBC Shared Data Unit makes data journalism available to the wider news industry as part of the BBC Local News Partnership.
 
