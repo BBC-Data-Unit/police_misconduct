@@ -1,9 +1,8 @@
-# Police_misconduct
-The Shared Data Unit's investigation into misconduct in police forces in England and Wales.
-
-In February 2022, The Shared Data Unit (SDU) looked at the [sanctions faced by police officers in misconduct hearings since the latest police watchdog was formed in 2018.](https://www.bbc.co.uk/news/uk-59594712)
+# Gross misconduct probe police officers avoid sack
 
 ![Police general](https://user-images.githubusercontent.com/61186777/154043002-c544652b-9851-489b-917c-75d1131e1dec.jpg)
+
+In February 2022, The Shared Data Unit (SDU) looked at the [sanctions faced by police officers in misconduct hearings since the latest police watchdog was formed in 2018.](https://www.bbc.co.uk/news/uk-59594712)
 
 The research found that around one in two police officers had remained in their jobs despite their gross misconduct being proven since then. 
 
